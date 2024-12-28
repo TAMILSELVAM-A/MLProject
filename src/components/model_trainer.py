@@ -42,6 +42,35 @@ class ModelTrainer():
                 "AdaBoosting Regressor" : AdaBoostRegressor(),
             }
 
+            params = {
+                "Random Forest" :{
+                    'n_estimators' : [8,16,32,64,128,256]
+                },
+                "Linear Regression":{},
+                "K-Neighnors Regressor":{
+                    'n_neighbors' : [5,7,9,11]
+                },
+                "Gradient Boosting":{
+                    'learning_rate':[.1,.01,.05,.001],
+                    "subsample":[0.6,0.7,0.75,0.8,0.85,0.9],
+                    'n_estimators':[8,16,32,64,128,256]
+                },
+                "XGBoost Regressor":{
+                    # 'learning_rate':[.1,.01,.05,.001],
+                    # 'n_estimators':[8,16,32,64,128,256]
+                },
+                "CataBoost Regressor":{
+                    # 'depth':[6,8,10],
+                    # 'learning_rate':[.1,.01,.05,.001],
+                    # 'iterations':[30,50,100]
+                },
+                "AdaBoosting Regressor":{
+                    #  'learning_rate':[.1,.01,.05,.001],
+                    # 'n_estimators':[8,16,32,64,128,256]
+                } 
+
+            }
+
             model_report : dict = evaluate_model(X_train=x_train,Y_train=y_train,
                                                  X_test = x_test,Y_test = y_test,
                                                  models=models)
